@@ -1,0 +1,38 @@
+@import "../../../utilities/variables.scss";
+.step-two{
+  label {
+    width: 100%;
+  }
+
+  .card-input-element {
+    display: none;
+  }
+
+  .card-input {
+    padding: 15px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid $cool-gray;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    .panel-icon{
+      flex-basis: 40px;
+    }
+    .container-text{
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-heading, .panel-body{
+      flex-basis: 100%;
+    }
+  }
+
+  .card-input:hover {
+    cursor: pointer;
+  }
+
+  .card-input-element:checked + .card-input {
+    border-color: $purplish-blue;
+    background: $light-blue-02;
+  }
+}

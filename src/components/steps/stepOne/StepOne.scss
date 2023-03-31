@@ -1,0 +1,33 @@
+@import "../../../utilities/variables.scss";
+.step-one{
+  .input-container{
+    width: 100%;
+    margin-bottom: 20px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    input, label{
+      width: 100%;
+    }
+    label{
+      color: $marine-blue;
+      font-weight: 400;
+      font-size: 14px;
+    }
+    input{
+      padding: 15px 0 15px 20px;
+      border-radius: 5px;
+      border: 1px solid $light-gray;
+      box-sizing: border-box;
+      &::placeholder{
+        font-weight: 500;
+        color: $cool-gray;
+        font-size: 14px;
+        margin-left: 10px;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+}
