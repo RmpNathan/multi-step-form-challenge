@@ -19,16 +19,18 @@ function App() {
                     <div className={step === 4 ? 'active btn-step' : 'btn-step'} onClick={() => {setStepFunction(4)}}>4</div>
                 </div>
             </div>
-            <div className='right-col'>
-                { step === 1 &&
-                  <StepOne/>
-                }
-                {step === 2 &&
-                  <StepTwo/>
-                }
-            </div>
-            <div className="container-btn-next">
-                <button>Next</button>
+            <div className="content-container">
+                <div className='right-col'>
+                    { step === 1 &&
+                      <StepOne/>
+                    }
+                    {step === 2 &&
+                      <StepTwo/>
+                    }
+                </div>
+                <div className="container-btn-next">
+                    <button>Next</button>
+                </div>
             </div>
         </div>
     </main>
