@@ -9,8 +9,9 @@ type Props = {
     setStep:  React.Dispatch<React.SetStateAction<number>>,
     plan: Plan | null,
     service: Array<Service> | [],
+    totalPrice: number
 }
-export default function StepFour({isYearly, setStep, plan, service}:Props) {
+export default function StepFour({isYearly, setStep, plan, service, totalPrice}:Props) {
     return(
         <div className='step-four'>
             <Title title={'Personal info'} subtitle={'Please provide your name, email address and phone number'}/>
@@ -22,6 +23,7 @@ export default function StepFour({isYearly, setStep, plan, service}:Props) {
                     )
                 })}
             </div>
+            <div>{totalPrice}</div>
         </div>
     )
 }

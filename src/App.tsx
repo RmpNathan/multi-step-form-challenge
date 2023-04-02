@@ -10,11 +10,12 @@ import StepFour from "./components/steps/stepFour/StepFour";
 function App() {
   const [step, setStep] = React.useState(1)
   const [isYearly, setIsYearly] = React.useState(false)
-  const [name, setName] = React.useState("")
-  const [email, setEmail] = React.useState("")
-  const [phone, setPhone] = React.useState("")
+  // const [name, setName] = React.useState("")
+  // const [email, setEmail] = React.useState("")
+  // const [phone, setPhone] = React.useState("")
   const [selectedPlan, setSelectedPlan] = React.useState<Plan | null>(null);
   const [selectedService, setSelectedService] = React.useState<Array<Service>>([]);
+  const [totalPrice, setTotalPrice] = React.useState<number>(0);
     const setStepFunction = (currentStep: number) => {
       setStep(currentStep)
   }
@@ -23,6 +24,17 @@ function App() {
         {title: 'Larger storage', subtitle: 'Extra 1TB of cloud save', price: 2, priceYearly: 20},
         {title: 'Customizable profile', subtitle: 'Custom theme in your profile', price: 2, priceYearly: 20}
     ]
+
+    React.useEffect(() => {
+        let newTotalPrice = 0
+        selectedService.forEach(ss => {
+            newTotalPrice += isYearly ? ss.priceYearly : ss.price
+        })
+        if (selectedPlan) {
+            newTotalPrice += isYearly ? selectedPlan.priceYearly : selectedPlan.price
+        }
+        setTotalPrice(newTotalPrice)
+    }, [selectedPlan, selectedService, isYearly])
 
 
   return (
@@ -47,7 +59,7 @@ function App() {
                   <StepThree allServices={allServices} setService={setSelectedService} isYearly={isYearly} selectedService={selectedService}/>
                 }
                 {step === 4 &&
-                  <StepFour isYearly={isYearly} setStep={setStep} plan={selectedPlan} service={selectedService}/>
+                  <StepFour isYearly={isYearly} setStep={setStep} plan={selectedPlan} service={selectedService} totalPrice={totalPrice}/>
                 }
             </div>
             <div className="container-btn-next">
