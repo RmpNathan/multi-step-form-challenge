@@ -1,13 +1,13 @@
 @import "../../../utilities/variables.scss";
-.step-two{
+.step-three{
   label {
     width: 100%;
   }
-
-  .card-input-element {
-    display: none;
+  .price-contenair{
+    margin-left: auto;
+    font-size: 13px;
+    color: $purplish-blue;
   }
-
   .card-input {
     padding: 15px;
     display: flex;
@@ -15,6 +15,7 @@
     border: 1px solid $cool-gray;
     border-radius: 10px;
     margin-bottom: 15px;
+    align-items: center;
     .panel-icon{
       flex-basis: 40px;
     }
@@ -25,13 +26,44 @@
     .panel-heading, .panel-body{
       flex-basis: 100%;
     }
+    .panel-body{
+      font-weight: 400;
+      font-size: 12px;
+      color: $cool-gray;
+    }
   }
-
+.card-input-element{
+  background-color: transparent;
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 1px solid $cool-gray;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  &::before{
+    content: "";
+    width: 1.15em;
+    height: 1.15em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    background-color: $purplish-blue;
+  }
+  &:checked{
+    &::before{
+      color: white;
+      transform: scale(1);
+    }
+  }
+}
   .card-input:hover {
     cursor: pointer;
   }
 
-  .card-input-element:checked + .card-input {
+  .checked {
     border-color: $purplish-blue;
     background: $light-blue-02;
   }

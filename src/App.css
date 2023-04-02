@@ -4,6 +4,10 @@
   background: hsl(229, 24%, 87%);
 }
 
+.hide {
+  display: none;
+}
+
 .form-container {
   border-radius: 10px;
   display: flex;
@@ -69,7 +73,7 @@
 
 .container-btn-next {
   background: #ffffff;
-  padding: 10px;
+  padding: 10px 0;
   width: 100%;
   display: flex;
   margin-top: auto;
