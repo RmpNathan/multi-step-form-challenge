@@ -23,7 +23,7 @@ export default function RadioCard({isYearly, plan, setSelectedPlan, selectedPlan
                 <div className="container-text">
                     <div className="panel-heading">{plan.title}</div>
                     <div className="panel-body">
-                        ${plan.price}/mo
+                        ${isYearly ? `${plan.priceYearly}/yr` : `${plan.price}/mo`}
                     </div>
                     { isYearly &&
                       <div className="yearly-offer">2 months free</div>

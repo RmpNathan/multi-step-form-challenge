@@ -18,31 +18,12 @@ function App() {
     const setStepFunction = (currentStep: number) => {
       setStep(currentStep)
   }
-    const allServices = React.useMemo(() => [
-        {title: 'Online service', subtitle: 'Access to multiplayer games', price: isYearly ? 10 : 1},
-        {title: 'Larger storage', subtitle: 'Extra 1TB of cloud save', price: isYearly ? 20 : 2},
-        {title: 'Customizable profile', subtitle: 'Custom theme in your profile', price: isYearly ? 20 : 2}
-    ], [isYearly])
+    const allServices = [
+        {title: 'Online service', subtitle: 'Access to multiplayer games', price: 1, priceYearly: 10},
+        {title: 'Larger storage', subtitle: 'Extra 1TB of cloud save', price: 2, priceYearly: 20},
+        {title: 'Customizable profile', subtitle: 'Custom theme in your profile', price: 2, priceYearly: 20}
+    ]
 
-    const refreshServicePrice = () => {
-        if (selectedService) {
-            const updatedServices = selectedService.map((ss) => {
-                const matchingService = allServices.find((as) => as.title === ss.title);
-                if (matchingService && matchingService.price !== ss.price) {
-                    return { ...ss, price: matchingService.price };
-                } else {
-                    return ss;
-                }
-            });
-            console.log('updated service : ', updatedServices)
-            setSelectedService(updatedServices);
-        }
-    }
-
-    React.useEffect(() => {
-        // code from StepThree's useEffect
-        refreshServicePrice()
-    }, [isYearly]);
 
   return (
     <main className="app">

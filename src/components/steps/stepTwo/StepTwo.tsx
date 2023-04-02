@@ -14,35 +14,15 @@ type Props = {
     selectedPlan: Plan | null,
 }
 export default function StepTwo ({isYearly, setIsYearly, setSelectedPlan, selectedPlan}:Props) {
-    const allPlans = React.useMemo(() => [
-        {title: 'Arcade', icon: <Arcade/>, price: isYearly ? 90 : 9},
-        {title: 'Advanced', icon: <Advanced/>, price: isYearly ? 120 : 12},
-        {title: 'Pro', icon: <Pro/>, price: isYearly ? 150 : 15}
-    ], [isYearly])
+    const allPlans = [
+        {title: 'Arcade', icon: <Arcade/>, price: 9 ,priceYearly: 90},
+        {title: 'Advanced', icon: <Advanced/>, price: 12, priceYearly: 120},
+        {title: 'Pro', icon: <Pro/>, price: 15, priceYearly: 150}
+    ]
     const handlerToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsYearly(event.target.checked)
     }
 
-    // React.useEffect(() => {
-    //     console.log('toto')
-    //     if (selectedPlan) {
-    //         const updatedPlan = allPlans.find((plan) => plan.title === selectedPlan.title);
-    //         if (updatedPlan)
-    //         setSelectedPlan(updatedPlan || null);
-    //     }
-    // }, [isYearly]);
-
-    React.useEffect(() => {
-        console.log('allPla change ')
-        if (selectedPlan) {
-            const updatedPlan = allPlans.find(
-                (plan) => plan.title === selectedPlan.title
-            );
-            if (updatedPlan && updatedPlan.price !== selectedPlan.price) {
-                setSelectedPlan(updatedPlan);
-            }
-        }
-    }, [isYearly]);
     return(
         <div className='step-two'>
             <Title title={'Personal info'} subtitle={'Please provide your name, email address and phone number'}/>

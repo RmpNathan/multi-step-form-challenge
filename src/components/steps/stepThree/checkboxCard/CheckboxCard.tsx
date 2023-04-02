@@ -25,15 +25,6 @@ export default function CheckboxCard({service, isYearly, setService, selectedSer
         }
     }
 
-    // React.useEffect(() => {
-    //     console.log('service change', service)
-    //     selectedService.map(s => {
-    //         if (s.title === service.title) {
-    //             service.price = s.price
-    //         }
-    //     })
-    // }, [service, selectedService])
-
     return(
         <label>
             <div className={isChecked ? 'panel panel-default card-input checked' : 'panel panel-default card-input'}>
@@ -44,7 +35,7 @@ export default function CheckboxCard({service, isYearly, setService, selectedSer
                         {service.subtitle}
                     </div>
                 </div>
-                <div className='price-contenair'>+${service.price}/{isYearly ? 'yr' : 'mo'}</div>
+                <div className='price-contenair'>+/{isYearly ? `${service.priceYearly}yr`: `${service.price}mo`}</div>
             </div>
         </label>
     )
